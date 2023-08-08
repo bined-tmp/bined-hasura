@@ -16,3 +16,26 @@ array_relationships:
         table:
           name: sessions
           schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - description
+        - email
+        - image
+        - name
+        - username
+        - createdAt
+        - emailVerified
+        - updatedAt
+        - id
+      filter: {}
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - username
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null
